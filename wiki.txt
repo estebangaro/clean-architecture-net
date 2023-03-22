@@ -1,0 +1,97 @@
+*** TEORIA ***
+
+¿Qué es Clean Architecture?
+- Es un concepto/filosofía popularizado por Robert Cecil Martin (también conocido como Uncle Bob). Clean Architecture, se compone de un conjunto de patrones, prácticas y principios para crear una arquitectura de software que sea simple, comprensible (cualquier desarrollador podrá dar mantenimiento al software, reduciendo la dependencia del desarrollador que originalmente haya implementado "x" bloque), flexible (esto es, software divido en componentes / piezas / bloques de código independientes entre si, permitiendo cambiar un "bloque" de código sin afectar al resto de bloques), comprobable (clean architecture facilita las pruebas de "bloques" de código independientemente del resto de bloques) y mantenible.
+
+¿Cuál es el objetivo de la filosofía de Clean Architecture?
+- Respaldar el ciclo de vida del sistema, esto es, una buena arquitectura hace que el sistema sea fácil de entender, fácil de desarrollar, fácil de mantener y fácil de implementar, permitiendo así, mínimizar el costo de vida útil del sistema y maximar la productividad del desarrollador.
+
+¿Qué tipo de estructuración de código propone Clean Architecture?
+- Clean Architecture, propone la estructuración del código en capas, cada una con su propia responsabilidad (Single Responsability - Solid).
+
+¿Cuáles son las principales propuestas que se alinean a la filosofía de Clean Architecture?
+- Hexagonal Architecture (Ports And Adapters).
+- Onion Architecture (Jeffrey Palermo).
+- Screaming Architecture de Robert C. Martin.
+- Clean Architecture de Robert C. Martin.
+
+¿Cuáles son las principales características de los sistemas que tienen una arquitectura de software limpia?
+- Son independientes de frameworks.
+- Facilitan la realización de pruebas (Testables), esto es, las reglas de negocio de la aplicación pueden ser probadas sin la UI, BD, Servidor Web o cualquier otro elemento externo.
+- Independientes de la UI, esto es, la UI puede cambiar facilmente sin afectar al resto del sistema.
+- Independientes de la BD (BD's relacionales, no relacionales o de distintos proveedores).
+- Independientes de cualquier agente externo, esto es, las reglas de negocio no dependen de ningún componente externo.
+
+¿Qué es la regla de la dependencia en Clean Architecture?
+- Partiendo de las 4 capas propuestas en el diagrama de Clean Architecture de Robert C. Martin (listadas de la capa + externa a la - externa): Frameworks & Drivers, Interface Adapters, Application Business Rules y Enterprise Business Rules, la regla de la dependencia establece que ninguna capa puede conocer / tener referencia de una capa exterior a ella. La técnica de IoC (Inversión de control) se vuelve el principal patrón de una arquitectura limpia ya que te ayuda a cumplir con la regla de la dependencia, esto es, en una capa donde normalmente solíamos ocupar una referencia a una implementación concreta, con IoC utilizamos en su lugar una "abstracción" para que la capa externa sea la que se encargue de la implementación.
+
+¿Qué tipo de código se coloca en la capa "Enterprise Business Rules" / Entities?
+- Las "entidades" que encapsulan las reglas generales de toda la empresa y que no necesariamente son exclusivas de la aplicación para la cual se esten utilizando.
+- Una "entidad" puede ser un objeto con métodos o puede ser un conjunto de estructuras de datos y funciones.
+- Esta capa contiene el código que puede ser compartido por las diferentes aplicaciones de la empresa, por lo regular en esta clase se colocan clases POCO, DTO's, Excepciones personalizadas, Value Objects, Eventos, Especificaciones, Validaciones e Interfaces.
+
+¿Qué tipo de código se coloca en la capa "Application Business Rules" / Use Cases?
+- En esta capa se encuentran elementos muy similares a los que se encuentran en la capa de "Enterprise Business Rules", con la diferencia de que en esta capa únicamente se coloca código que implementa reglas de negocio encargadas de dar solución a una aplicación particular.
+- Código que encapsula e implementa todos los casos de uso (Use Cases) de la aplicación. Los casos de uso orquestan el flujo de datos hacia y desde las "entidades" para que estas apliquen sus reglas de negocio empresariales y permitan lograr los objetivos del caso de uso.
+- En esta capa se ubican los siguientes elementos: Interfaces, Servicios, Excepciones personalizadas, Eventos, Especificaciones, Validaciones, DTO's, Value Objects.
+	- Use Case Interactor. 
+		- Este elemento contiene el código con la lógica / reglas de negocio que resuelve un caso de uso.
+		- Este elemento implementa la abstracción representada por el elemento Use Case Input Port.
+	- Use Case Input Port <I>.
+		- Este elemento representa una abstracción que le permite al elemento Use Case Interactor recibir los datos necesarios para resolver el caso de uso proporcionados por un elemento de la capa externa.
+	- Use Case Output Port <I>.
+		- Este elemento representa una abstracción que le permite al elemento Use Case Interactor devolver el resultado de la resolución del caso de uso a un elemento de la capa externa.
+	El elemento Input Port <I> es implementado por el elemento Use Case Interactor, mientras que el elemento Use Case Output Port<I> es implementado por un agente externo (elemento de la capa externa / Presenter).
+
+¿Qué tipo de código se coloca en la capa de "Interface Adapters" / Gateways, Controllers, Presenters?
+- En esta capa se coloca código encargado de convertir los datos del formato manejado por los casos de uso e identiades al formato mas conveniente para agentes externos (elementos de la capa externa / BD o la WEB).
+- Se pueden utilizar DTO's para pasar información entre controladores, casos de uso, presentadores y vistas.
+- Los datos de los "Casos de Uso" o "Entidades" se convierten al formato mas conveniente para el framework de persistencia que se este utilizando.
+- Ejemplos de elementos contenidos en esta capa: 
+	- Elementos de una aplicación MVC.
+	- Clientes de WEB API's.
+	- ViewModels.
+
+¿Qué tipo de código se coloca en la capa de "Frameworks & Drivers" / Devices, Web, UI, External Interfaces, DB?
+- La capa mas externa dentro de una arquitectura de software que implemente Clean Architecture, generalmente se compone de frameworks y herramientas como la BD, el framework WEB.
+- En esta capa van todos los detalles:
+	- La WEB / Páginas - Recursos web (dispositivo de entrada y salida de información), así como cualquier otra interfaz de usuario como la consola.
+
+¿Únicamente existen 4 capas?
+- No, las capas son esquemáticas, lo importante dentro de una arquitectura de software que implemente Clean Architecture es garantizar que se cumpla la regla de la dependencia.
+- A medida que se avanza entre capas mas interiores, aumenta el nivel de abstracción y políticas.
+- La capa más externa, consiste en detalles / elementos de mas bajo nivel (implementaciones concretas).
+- La capa más interna, consiste en detalles / elementos de más alto nivel (mayor abstracción y definición de políticas).
+
+¿Cómo está definido el flujo de control dentro de una arquitectura de software que implemente Clean Architecture?
+- El flujo de control inicia en el Controlador (Capa "Interface Adapters"), se mueve hacía los elementos Use Cases (Capa Application Business Rules / Uses Cases) y termina ejecutándose en el Presentador (Capa "Interface Adapters").
+- En tiempo de ejecución, el controlador consume al interactor y el interactor consume al presentador.
+NOTAS: Flechita fondo gris claro (flechita cerrada), representa que el elemento de la capa "implementa" al elemento hacia el cual la flechita apunte, mientras que la flechita fondo negro (flechita abierta), representa que el elemento de la capa "usa / referencia" la abstracción expuesta por el elemento hacia el cual la flechita apunte.
+
+¿Qué tipos de datos se pueden utilizar para comunicarnos entre capas?
+- Estructuras de datos simples.
+- Objetos simples de transferencia de datos (DTO's).
+- Argumentos en llamadas a funciones.
+
+¿Qué tipos de datos no debemos utilizar para comunicarnos entre capas?
+- Registros o filas de bases de datos, ya que esto obligaría a que otras capas conozcan los tipos especificos de los frameworks utilizados por nuestra lógica de acceso a datos (por ejemplo EF / EF Core).
+
+*** CONCEPTOS ***
+
+¿Cuál es la diferencia entre un ValueObject y una POCOEntitie?
+- Los ValuObjects no tienen identidad y no son modificables / inmutables. El tipo de dato recomendable en .NET para este propósito son los RECORDS: https://learn.microsoft.com/en-us/dotnet/csharp/whats-new/tutorials/records
+
+¿Qué es un Agregado (DDD)?
+- Un agregado es un grupo de objetos de dominio que pueden ser tratados como una unidad. Un agregado tendrá uno de sus objetos componentes como "raíz del agregado", por lo que cualquier referencia desde fuera del agregado debe realizarse a través de la raíz del agregado, de este modo la raíz del agregado puede garantizar la integridad del agregado en su conjunto.
+
+¿Cuál es la función del Presenter / Interface Adapters?
+- La función del "PRESENTER" es la de convertir los datos del formato mas conveniente para los casos de uso y entidades al formato mas conveniente para algún agente externo como la BD o la WEB.
+
+¿En qué consiste el patrón de diseño "Repository"?
+- Es un patrón que consiste en la separación de la lógica de negocios de la lógica de acceso a datos y los asigna a un modelo de entidad. Ejemplos de frameworks ORM que implementan este patrón: EF Core, Dapper, ADO .NET.
+Un repositorio media entre el dominio y las capas de mapeo de datos actuando como una colección de objetos de dominio en memoria.
+Un repositorio es una clase que oculta la lógica necesaria para almacenar o recuperar datos, por lo tanto a una aplicación no le importará que tipo de ORM o tecnología de acceso a datos estemos utilizando ya que todo lo relacionado a la lógica de acceso a datos se maneja dentro una capa de repositorio, esto nos permite tener una separación mas limpia de responsabilidades.
+El patrón "Repository" se utiliza a menudo con el patrón "Unit of Work".
+
+
+
