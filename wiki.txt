@@ -7,10 +7,10 @@
 - Respaldar el ciclo de vida del sistema, esto es, una buena arquitectura hace que el sistema sea fácil de entender, fácil de desarrollar, fácil de mantener y fácil de implementar, permitiendo así, mínimizar el costo de vida útil del sistema y maximar la productividad del desarrollador.
 
 ¿Qué tipo de estructuración de código propone Clean Architecture?
-- Clean Architecture, propone la estructuración del código en capas, cada una con su propia responsabilidad (Single Responsability - Solid).
+- Clean Architecture, propone la estructuración del código en capas, cada una con su propia responsabilidad (Single Responsability / Separation of concerns).
 
 ¿Cuáles son las principales propuestas que se alinean a la filosofía de Clean Architecture?
-- Hexagonal Architecture (Ports And Adapters).
+- Hexagonal Architecture (Ports And Adapters) de Alistair Cockburn.
 - Onion Architecture (Jeffrey Palermo).
 - Screaming Architecture de Robert C. Martin.
 - Clean Architecture de Robert C. Martin.
@@ -44,7 +44,7 @@
 	El elemento Input Port <I> es implementado por el elemento Use Case Interactor, mientras que el elemento Use Case Output Port<I> es implementado por un agente externo (elemento de la capa externa / Presenter).
 
 ¿Qué tipo de código se coloca en la capa de "Interface Adapters" / Gateways, Controllers, Presenters?
-- En esta capa se coloca código encargado de convertir los datos del formato manejado por los casos de uso e identiades al formato mas conveniente para agentes externos (elementos de la capa externa / BD o la WEB).
+- En esta capa se coloca código encargado de convertir los datos del formato manejado por los casos de uso y entidades al formato mas conveniente para agentes externos (elementos de la capa externa / BD o la WEB).
 - Se pueden utilizar DTO's para pasar información entre controladores, casos de uso, presentadores y vistas.
 - Los datos de los "Casos de Uso" o "Entidades" se convierten al formato mas conveniente para el framework de persistencia que se este utilizando.
 - Ejemplos de elementos contenidos en esta capa: 
@@ -66,7 +66,7 @@
 ¿Cómo está definido el flujo de control dentro de una arquitectura de software que implemente Clean Architecture?
 - El flujo de control inicia en el Controlador (Capa "Interface Adapters"), se mueve hacía los elementos Use Cases (Capa Application Business Rules / Uses Cases) y termina ejecutándose en el Presentador (Capa "Interface Adapters").
 - En tiempo de ejecución, el controlador consume al interactor y el interactor consume al presentador.
-NOTAS: Flechita fondo gris claro (flechita cerrada), representa que el elemento de la capa "implementa" al elemento hacia el cual la flechita apunte, mientras que la flechita fondo negro (flechita abierta), representa que el elemento de la capa "usa / referencia" la abstracción expuesta por el elemento hacia el cual la flechita apunte.
+NOTAS: Flechita fondo gris claro (flechita cerrada), representa que el elemento de la capa "implementa" al elemento hacia el cual la flechita apunte, mientras que la flechita fondo negro (flechita abierta), representa que el elemento de la capa "usa / referencia" la abstracción (interfaz) expuesta por el elemento hacia el cual la flechita apunte.
 
 ¿Qué tipos de datos se pueden utilizar para comunicarnos entre capas?
 - Estructuras de datos simples.
@@ -92,6 +92,77 @@ NOTAS: Flechita fondo gris claro (flechita cerrada), representa que el elemento 
 Un repositorio media entre el dominio y las capas de mapeo de datos actuando como una colección de objetos de dominio en memoria.
 Un repositorio es una clase que oculta la lógica necesaria para almacenar o recuperar datos, por lo tanto a una aplicación no le importará que tipo de ORM o tecnología de acceso a datos estemos utilizando ya que todo lo relacionado a la lógica de acceso a datos se maneja dentro una capa de repositorio, esto nos permite tener una separación mas limpia de responsabilidades.
 El patrón "Repository" se utiliza a menudo con el patrón "Unit of Work".
+
+NOTAS relacionadas a los conceptos teóricos de principios, patrones y buenas prácticas:
+PA => Princpio de arquitectura.
+
+** PRINCIPIOS DE ARQUITECTURA **
+
+¿En qué consiste el PA "Separation of concerns / Separación de intereses"?
+- El software debe ser separado en función de los tipos de trabajo que realiza.
+
+¿En qué consiste el PA "Encapsulation / Encapsulación"?
+- Las diferentes partes de una aplicación deben aislarese de otras partes de la aplicación, de modo que los componentes de la aplicación tengan la capacidad de poder ajustar su implementación sin afectar a sus colaboradores / capas con las que interactuan en tiempo de ejecución siempre que no se infrinjan los contratos establecidos.
+- El uso correcto de la encapsulación contribuye a lograr el acoplamiento flexible y la modularidad de los diseños de aplicaciones, esto es, todos los componentes de tu aplicación deben estar lo menos acoplados posibles, de esta forma tu puedes quitar un componente y remplazarlo por otro (implementaciones alternativas).
+- Los componentes de la aplicación y las propias aplicaciones deben exponer interfaces / clases abstractas bien definidas para que sus colaboradores las usen.
+
+¿Cómo se logra implementar el concepto de "Encapsulation / Encapsulación" en el contexto de diseño de clases orientadas a objetos?
+- Mediante la limitación del estado privado de los miembros de una clase al exterior a través de miembros públicos bien definidos que garanticen la integridad del estado de la clase, ejemplos de artefactos que nos permiten lograr esta "encapsulación" serían los "agregados".
+
+¿En qué consiste el PA "Dependency inversion / Inversión de dependencias"?
+- La dirección de dependencia dentro de la aplicación debe estar en la dirección de la abstracción, no de los detalles de implementación.
+
+¿En el contexto del PA "Dependency inversion", cuáles son las principales características de una gráfica de dependencia directa?
+- Las clases colaboradoras dependen de manera directa entre sí, de modo que, tanto en tiempo de compilación como en tiempo de ejecución el flujo de dependencia es el mismo, ejemplo: En tiempo de compilación ClaseA instancia un objeto de ClaseB mientras que ClaseB instancia un objeto de ClaseC, en tiempo de ejecución ClaseA consume directamente a objeto ClaseB y ClaseB consume directamente a objeto de ClaseC.
+
+¿En el contexto del PA "Dependency inversion", cuáles son las principales características de una gráfica de dependencia invertida?
+- Las clases colaboradoras no dependen de manera directa entre sí, de modo que, en tiempo de compilación no esiste una referencia directa entre las clases concretas, si no que, la referencia directa es hacia una "abstración / interfaz", mientras que en tiempo de ejecución las clases si consumen entre si a través de la interfaz aunque no tienen conocimiento directo de quien es el implementador que proporciona la funcionalidad que necesitan, ejemplo: En tiempo de compilación ClaseA referencia a una interfaz implementada por ClaseB, mientras que ClaseB referencia a una interfaz implementada por ClaseC.
+
+¿En qué consiste el PA "Explicit dependencies / Dependencias explicitas"?
+- Los métodos y las clases deben requerir explícitamente todos los objetos de colaboración que necesiten para funcionar correctamente.
+- Al seguir este PA, el código se vuelve mas autoexplicativo y los contratos de codificación más fáciles de usar.
+
+¿En qué consiste el PA "Single responsability / Responsabilidad única"?
+- Es similar al PA "Separation of concerns", que indica que los objetos solo deben tener una responsabilidad y solo una razón para cambiar.
+- El objeto debe cambiar solo si hay que actualizar la manera en la que lleva a cabo su única responsabilidad.
+- Este principio nos lleva a los Microservicios.
+
+¿En qué consiste el PA "Don't repeat yourself - DRY / Una vez y solo una"?
+- La aplicación debe evitar especificar el comportamiento relacionado con un determinado concepto en varios lugares (x ejemplo copy&paste de una validación en varios lugares), ya que esta práctica es una fuente de errores frecuente, por lo que en lugar de duplicar la lógica, se puede encapsular en una construcción de programación (artefacto de código) siempre y cuando correspondan al mismo propósito / concepto (que cumpla los mismos propósitos).
+
+¿En qué consiste el PA "Persistence ignorance / Omisión de persistencia"?
+- El código de los tipos de datos que se deben persistir no debe verse afectado por la elección de la tecnología de persistencia / framework utilizado.
+- Estos tipos no necesitan heredar de una clase base concreta o implementar alguna interfaz determinada.
+- Es posible que las opciones de persistencia cambien con el tiempo (x ejemplo, cambiar desde un Framework ORM, hasta el propio provedor de BD), o bien se requieran fuentes de persistencia adicionales.
+- Algunos ejemplos de clases que violan este principio son:
+	* Heredar de clases base.
+	* Implementar una interfaz determinada.
+	* Que implementen funcionalidad en la que se permitan "auto persistirse".
+	* Que requieran constructor sin parámetros.
+	* Propiedades marcadas como virtual.
+	* Que requieran decoradores de propiedades (attributes).
+
+¿En qué consiste el PA "Bounded contexts / Contextos delimitados"?
+- Abordan la complejidad de aplicaciones de gran tamaño dividiéndola en módulos conceptuales independientes, por lo que cada módulo conceptual representa un contexto que está separado de otros contextos.
+- Los contextos delimitados se asignan estrechamente a los Microservicios.
+
+** PRINCIPIOS SOLID **
+
+¿Qué significa SOLID?
+- Es un acrónimo acuñado por Michael Feathers basándose en los princpios de la programación orientada a objetos que Robert C. Martin recopiló a principios de la década del 2000 en su documento "Design Principles and Design Patters".
+
+¿Qué representa SOLID?
+- 5 principios básicos de la programación orientada a objetos:
+	* Single Responsability.
+	* Open-closed.
+	* Liskov substitution.
+	* Interface segregation.
+	* Dependency inversion.
+
+¿En qué consiste el principio SOLID "Single Responsability ó Responsabilidad única"?
+- Una clase debería tener solo 1 razón para cambiar, Robert C. Martin, identifica a "razón para cambiar" como responsabilidad.
+- Una clase debería estar destinada a una única responsabilidad y no mezclarla con otras que no le incunben a su dominio, por dominio se entiende a la razón de ser de la clase, esto es, una clase debería crearse para un propósito específico (dominio específico).
+- Para lograr este principio Robert C. Martin nos sugiere reunir las cosas que cambian por las mismas razónes y separar aquellas que cambian por razones diferentes.
 
 
 
