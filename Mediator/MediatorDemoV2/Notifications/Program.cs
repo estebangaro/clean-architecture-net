@@ -1,6 +1,3 @@
-using Notifications.Models;
-using Notifications.Models.NotificationHandlers;
-
 namespace Notifications
 {
     public class Program
@@ -15,13 +12,6 @@ namespace Notifications
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
-
-
-            builder.Services.AddTransient<INotificationHandler, NotificationHandler3>();
-            builder.Services.AddTransient<INotificationHandler, NotificationHandler2>();
-            builder.Services.AddTransient<INotificationHandler, NotificationHandler1>();
-
-            builder.Services.AddTransient<IMediator, Mediator>();
 
             var app = builder.Build();
 

@@ -1,0 +1,1 @@
+Esta solución no implementa el patrón "mediator", simplemente representa la implementación de un caso de uso en el que se requiere notificar a un conjunto de "manejadores" sobre una acción específica realizada.

@@ -2,7 +2,7 @@
 
 namespace Notifications.Models
 {
-    public abstract class NotificationHandlerBase : INotificationHandler
+    public abstract class NotificationHandlerBase
     {
         public virtual void Handle(string message)
         {

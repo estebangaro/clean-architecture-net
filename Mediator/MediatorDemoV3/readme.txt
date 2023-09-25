@@ -1,0 +1,1 @@
+Solución que implementa el patrón "mediator" bajo el escenario de envío de mensajes mediante la definición de una clase "mediator" que encapsula la forma en que son notificados los manejadores de notificaciones, esta solución a diferencia de la "V2" utiliza la técnica de "inyección de dependencias" y el uso de abstracciones para obtener un código más limpio.

@@ -1,7 +1,7 @@
-using Notifications.Models;
-using Notifications.Models.NotificationHandlers;
+using Mediator;
+using System.Reflection;
 
-namespace Notifications
+namespace MediatorClient
 {
     public class Program
     {
@@ -10,21 +10,15 @@ namespace Notifications
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
+            //builder.Services.AddMediator(Assembly.Load("EF_SQLSERVER_EDI_COMMANDS"));
+            builder.Services.AddMediator(Assembly.Load("ADONET_SQLSERVER_EDI_COMMANDS"));
 
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
-
-            builder.Services.AddTransient<INotificationHandler, NotificationHandler3>();
-            builder.Services.AddTransient<INotificationHandler, NotificationHandler2>();
-            builder.Services.AddTransient<INotificationHandler, NotificationHandler1>();
-
-            builder.Services.AddTransient<IMediator, Mediator>();
-
             var app = builder.Build();
-
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {

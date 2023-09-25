@@ -1,0 +1,1 @@
+Esta solución implementa una versión "simplificada" del patrón "mediator", mediante la refactorización de la funcionalidad relacionada a la notificación de manejadores en una clase "mediator".

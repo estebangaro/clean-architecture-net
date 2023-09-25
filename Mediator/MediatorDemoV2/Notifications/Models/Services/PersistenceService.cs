@@ -5,11 +5,12 @@ namespace Notifications.Models.Services
     public class PersistenceService
     {
         // Declarar la variable para almacenar la instancia de Mediator
-        readonly IMediator Mediator;
+        readonly Mediator Mediator;
         // Obtener la instancia de Mediator
-        public PersistenceService(IMediator mediator) =>
+        public PersistenceService(Mediator mediator) =>
         Mediator = mediator;
         // Método para guardar los cambios del usuario.
+
         public void SaveChanges(Emisor emisor)
         {
             // Lógica para guardar cambios
@@ -18,7 +19,6 @@ namespace Notifications.Models.Services
                 dbContext.Emisors.Add(emisor);
                 dbContext.SaveChanges();
             }
-
             // Notificar a los manejadores
             Mediator.Publish("SaveChanges");
         }

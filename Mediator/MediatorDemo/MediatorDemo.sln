@@ -3,7 +3,32 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notifications", "Notifications\Notifications.csproj", "{E2A68CA8-21C5-4007-B49D-AD5F0EBA4BFF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Notifications", "Notifications\Notifications.csproj", "{E2A68CA8-21C5-4007-B49D-AD5F0EBA4BFF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mediator", "Mediator\Mediator.csproj", "{FBEA2A7C-4D7F-4E87-AA29-A5EC65B0AD90}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Pruebas", "Pruebas", "{C4473679-1E5E-4EDD-AF8F-DB56F5F0FC98}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Reflection_InfoInterfaces_Methods", "..\..\..\..\..\..\..\..\Esteban García Rosas\Source\Workspaces\Pruebas\PruebasNET\Reflection_InfoInterfaces_Methods\Reflection_InfoInterfaces_Methods.csproj", "{16093537-82B5-45F8-BCE5-FDD6B4F16F4C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommandsAndHandlers", "CommandsAndHandlers\CommandsAndHandlers.csproj", "{5286A90A-AE10-4DD8-ACA6-A0FC90266689}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediatorClient", "MediatorClient\MediatorClient.csproj", "{F1A607EB-B33B-4F2F-9141-0EB7C323B183}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EDI_REQUESTS", "ProductRequests\EDI_REQUESTS.csproj", "{D91BB8D1-E820-478C-8BA4-3ED2F9CFC4D1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PruebasRequestAndCommands", "PruebasRequestAndCommands", "{72A80A89-6A07-4D72-8922-EE641200DB12}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EF_SQLSERVER_EDI_COMMANDS", "EF_SQLSERVER_EDICOMMANDS\EF_SQLSERVER_EDI_COMMANDS.csproj", "{E415EEAF-E31C-4A94-B433-C5F98D87614E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SQL SERVER", "SQL SERVER", "{2766C536-57ED-4347-852A-66E67ECDD124}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ADONET_SQLSERVER_EDI_COMMANDS", "ADONET_SQLSERVER_EDI_COMMANDS\ADONET_SQLSERVER_EDI_COMMANDS.csproj", "{858941FC-93F0-4248-8DB0-506520E19E10}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{FC43FDF6-8365-4EC9-979F-BCF0CCEB4E0D}"
+	ProjectSection(SolutionItems) = preProject
+		readme.txt = readme.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,9 +40,44 @@ Global
 		{E2A68CA8-21C5-4007-B49D-AD5F0EBA4BFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E2A68CA8-21C5-4007-B49D-AD5F0EBA4BFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E2A68CA8-21C5-4007-B49D-AD5F0EBA4BFF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FBEA2A7C-4D7F-4E87-AA29-A5EC65B0AD90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBEA2A7C-4D7F-4E87-AA29-A5EC65B0AD90}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBEA2A7C-4D7F-4E87-AA29-A5EC65B0AD90}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBEA2A7C-4D7F-4E87-AA29-A5EC65B0AD90}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16093537-82B5-45F8-BCE5-FDD6B4F16F4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16093537-82B5-45F8-BCE5-FDD6B4F16F4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16093537-82B5-45F8-BCE5-FDD6B4F16F4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16093537-82B5-45F8-BCE5-FDD6B4F16F4C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5286A90A-AE10-4DD8-ACA6-A0FC90266689}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5286A90A-AE10-4DD8-ACA6-A0FC90266689}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5286A90A-AE10-4DD8-ACA6-A0FC90266689}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5286A90A-AE10-4DD8-ACA6-A0FC90266689}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1A607EB-B33B-4F2F-9141-0EB7C323B183}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1A607EB-B33B-4F2F-9141-0EB7C323B183}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1A607EB-B33B-4F2F-9141-0EB7C323B183}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1A607EB-B33B-4F2F-9141-0EB7C323B183}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D91BB8D1-E820-478C-8BA4-3ED2F9CFC4D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D91BB8D1-E820-478C-8BA4-3ED2F9CFC4D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D91BB8D1-E820-478C-8BA4-3ED2F9CFC4D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D91BB8D1-E820-478C-8BA4-3ED2F9CFC4D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E415EEAF-E31C-4A94-B433-C5F98D87614E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E415EEAF-E31C-4A94-B433-C5F98D87614E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E415EEAF-E31C-4A94-B433-C5F98D87614E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E415EEAF-E31C-4A94-B433-C5F98D87614E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{858941FC-93F0-4248-8DB0-506520E19E10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{858941FC-93F0-4248-8DB0-506520E19E10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{858941FC-93F0-4248-8DB0-506520E19E10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{858941FC-93F0-4248-8DB0-506520E19E10}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{16093537-82B5-45F8-BCE5-FDD6B4F16F4C} = {C4473679-1E5E-4EDD-AF8F-DB56F5F0FC98}
+		{D91BB8D1-E820-478C-8BA4-3ED2F9CFC4D1} = {72A80A89-6A07-4D72-8922-EE641200DB12}
+		{E415EEAF-E31C-4A94-B433-C5F98D87614E} = {2766C536-57ED-4347-852A-66E67ECDD124}
+		{2766C536-57ED-4347-852A-66E67ECDD124} = {72A80A89-6A07-4D72-8922-EE641200DB12}
+		{858941FC-93F0-4248-8DB0-506520E19E10} = {2766C536-57ED-4347-852A-66E67ECDD124}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {AA816B55-73E2-422C-B13F-3E147A7F2775}
