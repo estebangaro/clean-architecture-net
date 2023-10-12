@@ -1,1 +1,3 @@
-Solución que utiliza el paquete MediatR para ejecutar operaciones de consultas y comandos, así como notificaciones en este ejemplo...
+Solución que utiliza el paquete MediatR para ejecutar operaciones de consultas (IRequest<T>) y comandos (IRequest), así como manejo notificaciones (INotification).
+La diferencia entre un mensaje de notificación y un mensaje de petición / respuesta que no devuelve resultado (comando), es que el primero puede ser propagado
+a 0...N manejadores de notificaciones, mientras que el segundo solo puede ser propagado a 1 manejador de petición / respuesta.

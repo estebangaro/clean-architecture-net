@@ -1,1 +1,2 @@
-Solución que utiliza el paquete MediatR para ejecutar operaciones de consultas y comandos, así como notificaciones en este ejemplo...
+Solución que utiliza el paquete MediatR para ejemplificar el uso de la característica de BEHAVIORS (mediante la abstracción IPipelineBehavior), 
+para ejecutar lógica de validación antes de ejecutar el manejador de la petición.

@@ -13,6 +13,7 @@ namespace EF_SQLSERVER_EDI_COMMANDS.Behaviors
         {
             if (request != null)
             {
+                //Acumulamos los mensajes de error en un StringBuilder, para que en una sola petición se puedan devolver todos los errores.
                 StringBuilder stringBuilder = new StringBuilder();
                 if (string.IsNullOrEmpty(request.Description))
                 {
