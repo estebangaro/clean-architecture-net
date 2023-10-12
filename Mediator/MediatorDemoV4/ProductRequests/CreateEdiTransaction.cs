@@ -1,6 +1,8 @@
-﻿namespace EdiRequests
+﻿using Mediator;
+
+namespace EdiRequests
 {
-    public class CreateEdiTransaction : MediatR.IRequest<int>
+    public class CreateEdiTransaction : IRequest<int>
     {
         public string Type { get; set; }
         public string Name { get; set; }

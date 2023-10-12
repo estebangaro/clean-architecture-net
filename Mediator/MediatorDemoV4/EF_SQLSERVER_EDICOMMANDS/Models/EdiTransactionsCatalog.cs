@@ -1,4 +1,7 @@
-﻿namespace EF_SQLSERVER_EDI_COMMANDS.Models;
+﻿using System;
+using System.Collections.Generic;
+
+namespace EF_SQLSERVER_EDI_COMMANDS.Models;
 
 public partial class EdiTransactionsCatalog
 {

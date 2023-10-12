@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Mediator\Mediator.csproj" />
     <ProjectReference Include="..\ProductRequests\EDI_REQUESTS.csproj" />
   </ItemGroup>
 

@@ -1,0 +1,2 @@
+Solución que implementa el patrón mediator (de manera artesanal) para ejecutar operaciones de consultas y comandos, en este ejemplo se define un objeto
+"mediator" que se encarga de crear el manejador de solicitudes mediante "reflection" y ejecutar la operación "Handle" correspondiente.

@@ -1,0 +1,33 @@
+{
+  "profiles": {
+    "MediatRDemo": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "swagger",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "DAL_NAME": "EF_SQLSERVER_EDI_COMMANDS",
+        "LogHandlerBaseDirectory": "C:\\Data\\Logs"
+      },
+      "dotnetRunMessages": true,
+      "applicationUrl": "https://localhost:7119;http://localhost:5107"
+    },
+    "IIS Express": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "launchUrl": "swagger",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  },
+  "$schema": "https://json.schemastore.org/launchsettings.json",
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:44938",
+      "sslPort": 44380
+    }
+  }
+}
