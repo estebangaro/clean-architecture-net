@@ -1,0 +1,6 @@
+@SoccerTriviaApp_Piloto.Server_HostAddress = http://localhost:5027
+
+GET {{SoccerTriviaApp_Piloto.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

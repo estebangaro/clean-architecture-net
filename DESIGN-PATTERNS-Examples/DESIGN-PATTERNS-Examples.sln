@@ -1,0 +1,81 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34728.123
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Mediator", "Mediator", "{D07EDD08-DABC-477F-A3D8-AF4ADBD88660}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApplication_Notifications_Eventsv1", "WebApplication_Notifications_Eventsv1\WebApplication_Notifications_Eventsv1.csproj", "{7DD14558-80C8-46E0-94F7-B78F1CD5246F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApplication_Notifications_Eventsv2", "WebApplication_Notifications_Eventsv2\WebApplication_Notifications_Eventsv2.csproj", "{73168ED1-B633-46FC-BA5C-E3B9D26DF14F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Escenario Envío de Mensajes (notificaciones)", "Escenario Envío de Mensajes (notificaciones)", "{23828C6B-C7CD-413A-9743-89AE4800DF09}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Escenario Ejecución de Operaciones de Comandos y Consultas", "Escenario Ejecución de Operaciones de Comandos y Consultas", "{38713CEB-FF00-41C4-B42C-2D2DE704DE20}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mediator", "Mediator\Mediator.csproj", "{8C217CB9-22CB-4105-BA04-DB36A355FEEB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication_StandingsSoccerv1", "WebApplication_StandingsSoccerv1\WebApplication_StandingsSoccerv1.csproj", "{9FD0A200-21E2-485E-9C76-4E6C4E5A1FBD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoccerStandings_API", "SoccerStandings_API\SoccerStandings_API.csproj", "{8BFF6C75-E25B-438C-900F-308F5D3FA187}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoccerStandings_BING", "SoccerStandings_BING\SoccerStandings_BING.csproj", "{78B6163B-0583-4DB0-A048-EF2DE71BE2E3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoccerStandings", "SoccerStandings\SoccerStandings.csproj", "{674D2747-05E7-4853-8FB1-65D1D53E70A9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MediatR", "MediatR", "{AF3C0441-541E-4A18-85FA-3FDC2B37AA31}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7DD14558-80C8-46E0-94F7-B78F1CD5246F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DD14558-80C8-46E0-94F7-B78F1CD5246F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DD14558-80C8-46E0-94F7-B78F1CD5246F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DD14558-80C8-46E0-94F7-B78F1CD5246F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73168ED1-B633-46FC-BA5C-E3B9D26DF14F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73168ED1-B633-46FC-BA5C-E3B9D26DF14F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73168ED1-B633-46FC-BA5C-E3B9D26DF14F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73168ED1-B633-46FC-BA5C-E3B9D26DF14F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C217CB9-22CB-4105-BA04-DB36A355FEEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C217CB9-22CB-4105-BA04-DB36A355FEEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C217CB9-22CB-4105-BA04-DB36A355FEEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C217CB9-22CB-4105-BA04-DB36A355FEEB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9FD0A200-21E2-485E-9C76-4E6C4E5A1FBD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9FD0A200-21E2-485E-9C76-4E6C4E5A1FBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9FD0A200-21E2-485E-9C76-4E6C4E5A1FBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9FD0A200-21E2-485E-9C76-4E6C4E5A1FBD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8BFF6C75-E25B-438C-900F-308F5D3FA187}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BFF6C75-E25B-438C-900F-308F5D3FA187}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BFF6C75-E25B-438C-900F-308F5D3FA187}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BFF6C75-E25B-438C-900F-308F5D3FA187}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78B6163B-0583-4DB0-A048-EF2DE71BE2E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78B6163B-0583-4DB0-A048-EF2DE71BE2E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78B6163B-0583-4DB0-A048-EF2DE71BE2E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78B6163B-0583-4DB0-A048-EF2DE71BE2E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{674D2747-05E7-4853-8FB1-65D1D53E70A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{674D2747-05E7-4853-8FB1-65D1D53E70A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{674D2747-05E7-4853-8FB1-65D1D53E70A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{674D2747-05E7-4853-8FB1-65D1D53E70A9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7DD14558-80C8-46E0-94F7-B78F1CD5246F} = {23828C6B-C7CD-413A-9743-89AE4800DF09}
+		{73168ED1-B633-46FC-BA5C-E3B9D26DF14F} = {23828C6B-C7CD-413A-9743-89AE4800DF09}
+		{23828C6B-C7CD-413A-9743-89AE4800DF09} = {D07EDD08-DABC-477F-A3D8-AF4ADBD88660}
+		{38713CEB-FF00-41C4-B42C-2D2DE704DE20} = {D07EDD08-DABC-477F-A3D8-AF4ADBD88660}
+		{8C217CB9-22CB-4105-BA04-DB36A355FEEB} = {38713CEB-FF00-41C4-B42C-2D2DE704DE20}
+		{9FD0A200-21E2-485E-9C76-4E6C4E5A1FBD} = {38713CEB-FF00-41C4-B42C-2D2DE704DE20}
+		{8BFF6C75-E25B-438C-900F-308F5D3FA187} = {38713CEB-FF00-41C4-B42C-2D2DE704DE20}
+		{78B6163B-0583-4DB0-A048-EF2DE71BE2E3} = {38713CEB-FF00-41C4-B42C-2D2DE704DE20}
+		{674D2747-05E7-4853-8FB1-65D1D53E70A9} = {38713CEB-FF00-41C4-B42C-2D2DE704DE20}
+		{AF3C0441-541E-4A18-85FA-3FDC2B37AA31} = {D07EDD08-DABC-477F-A3D8-AF4ADBD88660}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C9EAF12F-15D5-4EB4-A9A3-AF671DFB46B9}
+	EndGlobalSection
+EndGlobal
