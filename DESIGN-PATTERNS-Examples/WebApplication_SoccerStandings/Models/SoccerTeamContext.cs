@@ -18,9 +18,9 @@ namespace WebApplication_SoccerStandings.Models
         {
             var entityEntry = await _testContext.SoccerTeams.AddAsync(new SoccerTeam
             {
-                CountryId = 57,
+                CountryId = soccerTeam.CountryId,
                 Name = soccerTeam.Name,
-                Stadium = "N/A"
+                Stadium = soccerTeam.Stadium
             });
 
             var result = await _testContext.SaveChangesAsync();

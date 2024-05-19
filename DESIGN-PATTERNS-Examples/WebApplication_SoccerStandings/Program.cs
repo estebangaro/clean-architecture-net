@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using System.Reflection;
 using WebApplication_SoccerStandings.DbContext;
 using WebApplication_SoccerStandings.Interfaces;
 using WebApplication_SoccerStandings.Models;
@@ -21,6 +22,8 @@ namespace WebApplication_SoccerStandings
                 connectionString: builder.Configuration.GetConnectionString("tests_db_conn")));
 
             builder.Services.AddScoped<ISoccerTeamContext, SoccerTeamContext>();
+
+            builder.Services.AddMediatR(cnfg => cnfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
 
             var app = builder.Build();
 

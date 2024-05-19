@@ -25,7 +25,7 @@ public partial class TestsContext : Microsoft.EntityFrameworkCore.DbContext
         {
             entity.ToTable("Soccer_Teams");
 
-            entity.Property(e => e.Id).ValueGeneratedNever();
+            entity.Property(e => e.Id).UseIdentityColumn();
             entity.Property(e => e.CountryId).HasColumnName("Country_Id");
             entity.Property(e => e.Name)
                 .IsRequired()
