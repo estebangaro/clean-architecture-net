@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "ConsoleApp_Notifications_Eventsv1": {
+      "commandName": "Project"
+    },
+    "Container (Dockerfile)": {
+      "commandName": "Docker"
+    }
+  }
+}
